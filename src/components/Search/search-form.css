@@ -1,6 +1,6 @@
 .search-input {
     height: 57px;
-    width: 713px;
+    width: 600px;
     left: 0px;
     top: 0px;
     border-radius: 4px;
@@ -32,7 +32,7 @@
   
   .search-button {
     height: 57px;
-    width: 233px;
+    width: 100px;
     left: 0px;
     top: 0px;
     border-radius: 4px;

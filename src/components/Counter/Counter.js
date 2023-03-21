@@ -1,14 +1,19 @@
-import React from "react";
+import React, {createElement} from "react";
+import "./counter.css"
 
 function Button(props) {
   return React.createElement("button", { onClick: props.handleClick }, props.name);
 }
 
 export class Counter extends React.Component {
-  state = {
-    count: 0,
-  };
 
+  constructor(props) {
+    super(props)
+    this.state = { count:0 }
+    this.handleIncrement = this.handleIncrement.bind(this)
+    this.handleDecrement = this.handleDecrement.bind(this)
+  }
+  
   handleIncrement = () => {
     this.setState({
       count: this.state.count + 1,
@@ -24,10 +29,15 @@ export class Counter extends React.Component {
   render() {
     return React.createElement(
       "div",
-      null,
-      React.createElement(Button, { handleClick: this.handleIncrement, name: "+1" }, null),
-      React.createElement(Button, { handleClick: this.handleDecrement, name: "-1" }, null),
-      React.createElement("p", null, this.state.count)
+      { className: 'counter' },
+      [
+        React.createElement("h2", null, "Counter"),
+        React.createElement(Button, { handleClick: this.handleIncrement, name: "+1" }, null),
+        React.createElement(Button, { handleClick: this.handleDecrement, name: "-1" }, null),
+        React.createElement("p", null, this.state.count)
+      ]
     );
   }
 }
+
+export default Counter;
