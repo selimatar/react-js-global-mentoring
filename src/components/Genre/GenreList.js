@@ -20,7 +20,7 @@ const GenreList = ({ genreList, currentSelected, selectGenre }) => {
             <h2>Genre List Component</h2>
             <div className="tabs">
                 {genreList && genreList.map((genre) => {
-                    return <Genre genre={genre} checkActive={checkActive} handleClick={handleClick}/>
+                    return <Genre key={genre} genre={genre} checkActive={checkActive} handleClick={handleClick}/>
                 })}
             </div>
             <div className="panels">

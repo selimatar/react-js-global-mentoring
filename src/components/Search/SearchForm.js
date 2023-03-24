@@ -12,9 +12,10 @@ export class SearchForm extends React.Component{
 
   constructor(props) {
     super(props);
-    this.state = {value: ''};
-
+    this.initialSearchQuery = '';
+    this.state = { value: this.initialSearchQuery };
     this.handleChange = this.handleChange.bind(this);
+    this.handleChange = props.handleChange;
   }
 
   handleChange(event) {
@@ -30,7 +31,7 @@ export class SearchForm extends React.Component{
           type="text" 
           placeholder="What do you want to watch?" 
           value={this.state.searchText} 
-          onChange= {this.handleChange} 
+          onChange= {this.handleChange}
         />
         <input className="search-button" type="submit" value="SEARCH" />
       </form>
