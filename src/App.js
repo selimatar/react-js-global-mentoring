@@ -11,7 +11,7 @@ function App() {
     <>
       <Counter />
       <SearchForm />
-      <GenreList genreList={genreList} currentSelected={"All"} selectGenre={selectGenre}/>
+      <GenreList genreList={genreList} currentSelected="All" selectGenre={selectGenre}/>
     </>
   );
 }
