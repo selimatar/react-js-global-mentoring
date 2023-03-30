@@ -1,8 +1,8 @@
 import React from "react";
 import './App.css';
-import Counter from "./components/Counter/Counter";
-import SearchForm from "./components/Search/SearchForm";
-import GenreList from "./components/Genre/GenreList";
+import Counter from "./components/Counter/counter";
+import SearchForm from "./components/Search/searchForm";
+import GenreList from "./components/Genre/genreList";
 import { genreList } from "./components/Genre/genre-list";
 import { selectGenre } from "./components/Genre/selectGenre";
 

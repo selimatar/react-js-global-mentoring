@@ -1,5 +1,5 @@
 import React from "react";
-import "./genre.css"
+import "./css/genre.css"
 
 const Genre = (props) => {
     return (

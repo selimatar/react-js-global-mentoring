@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Genre from "./Genre"
-import "./genre-list.css";
+import Genre from "./genre"
+import "./css/genre-list.css";
 
 const GenreList = ({ genreList, currentSelected, selectGenre }) => {
     const [selectedGenre, setSelectedGenre] = useState(currentSelected);
