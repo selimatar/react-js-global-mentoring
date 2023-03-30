@@ -1,20 +1,26 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Counter from "./Counter";
 
 test("renders counter component", () => {
-  const counter = render(<Counter />);
+  render(<Counter />);
   const countElement = screen.getByText(0);
   expect(countElement).toBeInTheDocument();
 });
 
-test("should decraese count when click button", () => {
-  render(<Counter />);
-  const decraeseButton = screen.getByText("+1");
-  expect(decraeseButton).toBeInTheDocument();
+test('clicking on button increments counter', () => { 
+  // render the component 
+  render(<Counter />); 
+  // simulate the user click on the button 
+  fireEvent.click(screen.getByText('+1')); 
+  // outcome 
+  expect(screen.getByTitle('count').textContent).toBe('1'); 
 });
 
-test("should increase count when click button", () => {
-  render(<Counter />);
-  const increaseButton = screen.getByText("-1");
-  expect(increaseButton).toBeInTheDocument();
+test('clicking on button decrements counter', () => { 
+  // render the component 
+  render(<Counter />); 
+  // simulate the user click on the button 
+  fireEvent.click(screen.getByText('-1')); 
+  // outcome 
+  expect(screen.getByTitle('count').textContent).toBe('-1'); 
 });
