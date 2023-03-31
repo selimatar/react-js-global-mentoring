@@ -1,13 +1,6 @@
 import React from "react";
 import './search-form.css';
 
-function handleSubmit(value) {
-  return event => {
-    event.preventDefault()
-    alert('A film was submitted: ' + value);
-  }
-}
-
 export class SearchForm extends React.Component{
 
   constructor(props) {
@@ -15,7 +8,6 @@ export class SearchForm extends React.Component{
     this.initialSearchQuery = '';
     this.state = { value: this.initialSearchQuery };
     this.handleChange = this.handleChange.bind(this);
-    this.handleChange = props.handleChange;
   }
 
   handleChange(event) {
@@ -24,7 +16,7 @@ export class SearchForm extends React.Component{
 
   render() {
     return (
-      <form style={{margin: "40px"}} onSubmit={handleSubmit(this.state.value)}>
+      <form style={{margin: "40px"}} onSubmit={this.props.handleSubmit(this.state.value)}>
         <h2>Search Form Component</h2>
         <input 
           className="search-input" 
