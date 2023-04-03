@@ -1,5 +1,5 @@
 import React from "react";
-import "./css/counter.css"
+import "./css/counter.css";
 
 function Button(props) {
   return React.createElement("button", { onClick: props.handleClick }, props.name);

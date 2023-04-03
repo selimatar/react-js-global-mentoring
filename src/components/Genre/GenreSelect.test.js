@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import GenreList from "./genreList";
+import GenreSelect from './genreSelect';
 
 test("renders genre list component", () => {
-  render(<GenreList />);
+  render(<GenreSelect />);
 });

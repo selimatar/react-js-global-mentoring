@@ -2,7 +2,7 @@ import React from "react";
 import './App.css';
 import Counter from "./components/Counter/counter";
 import SearchForm from "./components/Search/searchForm";
-import GenreList from "./components/Genre/genreList";
+import GenreSelect from "./components/Genre/genreSelect";
 import { genreList } from "./components/Genre/genre-list";
 import { selectGenre } from "./components/Genre/selectGenre";
 
@@ -18,7 +18,7 @@ function App() {
     <>
       <Counter />
       <SearchForm initialSearchQuery="" handleSubmit={handleSubmit} />
-      <GenreList genreList={genreList} currentSelected="All" selectGenre={selectGenre}/>
+      <GenreSelect genreList={genreList} currentSelected="All" selectGenre={selectGenre}/>
     </>
   );
 }
