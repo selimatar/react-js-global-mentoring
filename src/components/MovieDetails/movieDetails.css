@@ -1,58 +1,34 @@
-.movie-card {
-    position: 'absolute';
-    width: '319px';
-    height: '507px';
-    left: '495px';
-    top: '559px';
-    border: '1px solid black';
-    border-radius: '5px';
-    overflow: 'hidden';
+.movie-details {
+    display: flex;
     margin: 40px;
 }
 
-.movie-image {
-    width: '100%';
-    height: '300px';
-    object-fit: 'cover';
-}
-
 .movie-title {
-    width: 217px;
-    height: 22px;
-    
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
-    /* identical to box height */
-    
-    mix-blend-mode: normal;
-    opacity: 0.7;
-}
-
-.releaseYear {
-    box-sizing: border-box;
-
-    width: 66px;
-    height: 26px;
-    mix-blend-mode: normal;
-    opacity: 0.5;
-    border: 1px solid #979797;
-    border-radius: 4px;
-}
-
-.genres {
-    width: 323px;
-    height: 17px;
+    width: 300px;
+    height: 49px;
 
     font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 49px;
     /* identical to box height */
 
-    mix-blend-mode: normal;
-    opacity: 0.5;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.movie-avarage {
+    height: 24px;
+    left: 21.67%;
+    right: 21.67%;
+    top: calc(50% - 24px/2);
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
 }

@@ -28,14 +28,17 @@ function App() {
       <Counter />
       <SearchForm initialSearchQuery="" handleSubmit={handleSubmit} />
       <GenreSelect genreList={genreList} currentSelected="All" selectGenre={selectGenre}/>
-      <MovieTile genres={genreList}/>
-      <MovieDetails 
-        imageUrl={"https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg"} 
-        movieName="Fifty Shades Freed" 
-        releaseYear="2008"
-        genres={["Drama", "Romance"]}
-      />
+      <MovieTile movieName="Fifty Shades Freed" releaseYear="2008" genres={["Drama", "Romance"]} imageUrl={"https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg"}/>
       <SortControl currentSelection={sortBy} onSelectionChange={handleSortByChange} />
+      <MovieDetails 
+        movieName="Star Wars: The Last Jedi" 
+        releaseYear="2008" 
+        genres={["Fantasy", "Adventure", "Science Fiction"]} 
+        imageUrl={"https://image.tmdb.org/t/p/w500/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg"}
+        description="Rey develops her newly discovered abilities with the guidance of Luke Skywalker,
+        who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares to do battle with the First Order."
+        rating="7.1"
+      />
     </>
   );
 }
