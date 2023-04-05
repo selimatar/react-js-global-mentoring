@@ -1,4 +1,4 @@
-[
+export const movieList = [
   {
       "id": 337167,
       "title": "Fifty Shades Freed",

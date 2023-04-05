@@ -3,18 +3,17 @@
     margin: 40px;
 }
 
-.movie-title {
-    width: 300px;
-    height: 49px;
+.movie-information {
+    margin-left: 60px;
+}
 
+.movie-title {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 300;
     font-size: 30px;
     line-height: 49px;
     /* identical to box height */
-
-    text-align: center;
     text-transform: uppercase;
 }
 

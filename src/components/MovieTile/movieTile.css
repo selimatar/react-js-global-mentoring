@@ -5,6 +5,9 @@
     border-radius: '5px';
     overflow: 'hidden';
     margin: 40px;
+    
+    display: flex;
+    justify-content: space-between;
 }
 
 .movie-details {

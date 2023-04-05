@@ -1,23 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './movieTile.css'
 
-const MovieTile = (props) => {
-  const lastIndex = props.genres.length - 1;
-  const genres = props.genres.slice(0, lastIndex).join(', ') + (lastIndex > 0 ? ' & ' : '') + props.genres[lastIndex];
+const MovieTile = ({ movieInfo, onClick, onEdit, onDelete }) => {
+  const [showContextMenu, setShowContextMenu] = useState(false);
+
+  const handleContextMenu = (event) => {
+    event.preventDefault();
+    setShowContextMenu(true);
+  };
+
+  const handleContextMenuClose = () => {
+    setShowContextMenu(false);
+  };
+
+  const handleEditClick = () => {
+    setShowContextMenu(false);
+    onEdit();
+  };
+
+  const handleDeleteClick = () => {
+    setShowContextMenu(false);
+    onDelete();
+  };
 
   return (
-    <div className="movie-tile">
-      <div className="movie-image">
-        <img src={props.imageUrl} alt={props.movieName} />
-      </div>
-      <div className="movie-details">
-        <div className="movie-name">{props.movieName}</div>
-        <div className="movie-year">{props.releaseYear}</div>
-      </div>
-      <div className="movie-genres">
-          <span className="genres">{genres}</span>
+      <div className="movie-tile" onClick={onClick}>
+        <img className="movie-image" src={movieInfo.imageUrl} alt={movieInfo.title} />
+        <div className="movie-tile-details">
+          <h2>{movieInfo.title}</h2>
+          <p>{movieInfo.releaseYear}</p>
+          <p>{movieInfo.genres.join(', ')}</p>
         </div>
-    </div>
+        <div className="movie-tile-actions">
+          <button onClick={handleContextMenu}>...</button>
+          {showContextMenu && (
+            <div className="context-menu" onBlur={handleContextMenuClose}>
+              <button onClick={handleEditClick}>Edit</button>
+              <button onClick={handleDeleteClick}>Delete</button>
+            </div>
+          )}
+        </div>
+      </div>
   );
 };
 
