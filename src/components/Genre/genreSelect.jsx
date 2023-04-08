@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Genre from "./Genre"
+import Genre from "./genre"
 import "./genre-list.css";
 
 const GenreSelect = ({ genreList, currentSelected, selectGenre }) => {
