@@ -17,26 +17,26 @@ function handleSubmit(value) {
   }
 }
 
-  const movies = [
-    {
-      imageUrl: movieList[0].poster_path,
-      title: movieList[0].title,
-      releaseYear: movieList[0].release_date,
-      genres: movieList[0].genres,
-      description: movieList[0].overview,
-      duration: movieList[0].runtime,
-      rating: movieList[0].vote_average
-    },
-    {
-      imageUrl: movieList[3].poster_path,
-      title: movieList[3].title,
-      releaseYear: movieList[3].release_date,
-      genres: movieList[3].genres,
-      description: movieList[3].overview,
-      duration: movieList[3].runtime,
-      rating: movieList[3].vote_average
-    },
-  ];
+const movies = [
+  {
+    imageUrl: movieList[0].poster_path,
+    title: movieList[0].title,
+    releaseYear: movieList[0].release_date,
+    genres: movieList[0].genres,
+    description: movieList[0].overview,
+    duration: movieList[0].runtime,
+    rating: movieList[0].vote_average
+  },
+  {
+    imageUrl: movieList[3].poster_path,
+    title: movieList[3].title,
+    releaseYear: movieList[3].release_date,
+    genres: movieList[3].genres,
+    description: movieList[3].overview,
+    duration: movieList[3].runtime,
+    rating: movieList[3].vote_average
+  },
+];
 
 function App() {
   const [sortBy, setSortBy] = useState('release-date');
@@ -66,17 +66,15 @@ function App() {
       <SearchForm initialSearchQuery="" handleSubmit={handleSubmit} />
       <GenreSelect genreList={genreList} currentSelected="All" selectGenre={selectGenre}/>
       <SortControl currentSelection={sortBy} onSelectionChange={handleSortByChange} />
-      <h2 style={{margin: 40}}>Movie Tile Component</h2>
       {movies.map((movie) => (
         <MovieTile
           key={movie.title}
           movieInfo={movie}
-          onClick={() => { handleTileClick(movie)}}
+          onClick={() => handleTileClick(movie)}
           onEdit={() => handleEditClick(movie)}
           onDelete={() => handleDeleteClick(movie)}
         />
-      ))}
-      <h2 style={{margin: 40}}>Movie Details Component</h2>
+      ))};
       {showDetail && <MovieDetails movie={selectedMovie}/>}
     </>
   );

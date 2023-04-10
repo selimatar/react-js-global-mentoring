@@ -6,7 +6,7 @@ const SortControl = ({ currentSelection, onSelectionChange }) => {
   };
 
   return (
-    <div className="sort-control">
+    <div className="sort-control" role="form">
       <label className="sort-by-select" htmlFor="sort-by-select">Sort by:</label>
       <select className="release-date" id="sort-by-select" value={currentSelection} onChange={handleSelectionChange}>
         <option value="release-date">Release Date</option>
