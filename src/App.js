@@ -9,6 +9,7 @@ import { selectGenre } from "./components/Genre/selectGenre";
 import MovieTile from "./components/MovieTile/movieTile";
 import MovieDetails from "./components/MovieDetails/movieDetails";
 import SortControl from "./components/SortControl/sortControl";
+import Dialog from './components/Dialog/dialog';
 
 function handleSubmit(value) {
   return event => {
@@ -42,6 +43,7 @@ function App() {
   const [sortBy, setSortBy] = useState('release-date');
   const [showDetail, setShowDetail] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState({});
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   
   const handleTileClick = (movie) => {
     setShowDetail(true);
@@ -60,6 +62,10 @@ function App() {
     setSortBy(newSortBy);
   };
 
+  const handleDialogClose = () => {
+    setIsDialogOpen(false);
+  };
+
   return (
     <>
       <Counter />
@@ -76,6 +82,12 @@ function App() {
         />
       ))};
       {showDetail && <MovieDetails movie={selectedMovie}/>}
+      <button style={{margin: "40px"}} onClick={() => setIsDialogOpen(true)}>Open Dialog</button>
+      {isDialogOpen && (
+        <Dialog title="My Dialog" onClose={handleDialogClose}>
+          <p>This is the content of my dialog.</p>
+        </Dialog>
+      )}
     </>
   );
 }
