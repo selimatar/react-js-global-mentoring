@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import GenreSelect from "./genreSelect";
+import GenreSelect from "../genreSelect";
 
 describe('GenreSelect', () => {
   const genreList = [
