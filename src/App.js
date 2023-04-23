@@ -66,6 +66,7 @@ function App() {
       <SearchForm initialSearchQuery="" handleSubmit={handleSubmit} />
       <GenreSelect genreList={genreList} currentSelected="All" selectGenre={selectGenre}/>
       <SortControl currentSelection={sortBy} onSelectionChange={handleSortByChange} />
+      {showDetail && <MovieDetails movie={selectedMovie}/>}
       {movies.map((movie) => (
         <MovieTile
           key={movie.title}
@@ -75,7 +76,6 @@ function App() {
           onDelete={() => handleDeleteClick(movie)}
         />
       ))};
-      {showDetail && <MovieDetails movie={selectedMovie}/>}
     </>
   );
 }
