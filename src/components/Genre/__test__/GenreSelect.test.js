@@ -17,7 +17,7 @@ describe('GenreSelect', () => {
   });
 
   test('highlights a selected genre passed in props', () => {
-  
+
     const currentSelected = 'Comedy';
     const { container } = render(<GenreSelect genreList={genreList} currentSelected={currentSelected} selectGenre={selectGenre} />);
 

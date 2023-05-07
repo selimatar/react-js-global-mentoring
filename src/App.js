@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './App.css';
-import Counter from "./components/Counter/Counter";
-import SearchForm from "./components/Search/SearchForm";
-import GenreList from "./components/Genre/GenreList";
+import Counter from "./components/Counter/counter";
+import SearchForm from "./components/Search/searchForm";
+import GenreSelect from "./components/Genre/genreSelect";
 import { genreList } from "./components/Genre/genre-list";
 import { movieList } from "./data/movies";
 import { selectGenre } from "./components/Genre/selectGenre";
+import MovieTile from "./components/MovieTile/movieTile";
+import MovieDetails from "./components/MovieDetails/movieDetails";
+import SortControl from "./components/SortControl/sortControl";
 
 function handleSubmit(value) {
   return event => {
@@ -61,7 +64,18 @@ function App() {
     <>
       <Counter />
       <SearchForm initialSearchQuery="" handleSubmit={handleSubmit} />
-      <GenreList genreList={genreList} currentSelected="All" selectGenre={selectGenre}/>
+      <GenreSelect genreList={genreList} currentSelected="All" selectGenre={selectGenre}/>
+      <SortControl currentSelection={sortBy} onSelectionChange={handleSortByChange} />
+      {showDetail && <MovieDetails movie={selectedMovie}/>}
+      {movies.map((movie) => (
+        <MovieTile
+          key={movie.title}
+          movieInfo={movie}
+          onClick={() => handleTileClick(movie)}
+          onEdit={() => handleEditClick(movie)}
+          onDelete={() => handleDeleteClick(movie)}
+        />
+      ))};
     </>
   );
 }
