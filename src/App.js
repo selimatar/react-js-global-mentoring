@@ -10,6 +10,7 @@ import MovieTile from "./components/MovieTile/movieTile";
 import MovieDetails from "./components/MovieDetails/movieDetails";
 import SortControl from "./components/SortControl/sortControl";
 import Dialog from './components/Dialog/dialog';
+import MovieForm from './components/MovieForm/movieForm';
 
 function handleSubmit(value) {
   return event => {
@@ -86,6 +87,7 @@ function App() {
       {isDialogOpen && (
         <Dialog title="My Dialog" onClose={handleDialogClose}>
           <p>This is the content of my dialog.</p>
+          <MovieForm initialMovieInfo={movies[0]} />
         </Dialog>
       )}
     </>

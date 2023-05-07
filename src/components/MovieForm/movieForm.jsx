@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 
 const MovieForm = ({ initialMovieInfo = {}, onSubmit }) => {
-  const [movieInfo, setMovieInfo] = useState(initialMovieInfo);
+
+  const [movieInfo, setMovieInfo] = useState(initialMovieInfo || {
+    imageUrl: '',
+    title: '',
+    releaseYear: '',
+    genres: [],
+    description: '',
+    duration: '',
+    rating: ''
+  });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -26,7 +35,7 @@ const MovieForm = ({ initialMovieInfo = {}, onSubmit }) => {
         value={movieInfo.title || ''}
         onChange={handleInputChange}
         required
-      />
+      /><br/>
 
       <label htmlFor="description">Description</label>
       <textarea
@@ -35,7 +44,7 @@ const MovieForm = ({ initialMovieInfo = {}, onSubmit }) => {
         value={movieInfo.description || ''}
         onChange={handleInputChange}
         required
-      ></textarea>
+      ></textarea><br/>
 
       <label htmlFor="releaseDate">Release Date</label>
       <input
@@ -45,17 +54,17 @@ const MovieForm = ({ initialMovieInfo = {}, onSubmit }) => {
         value={movieInfo.releaseDate || ''}
         onChange={handleInputChange}
         required
-      />
+      /><br/>
 
       <label htmlFor="posterUrl">Poster URL</label>
       <input
         type="url"
         id="posterUrl"
         name="posterUrl"
-        value={movieInfo.posterUrl || ''}
+        value={movieInfo.imageUrl || ''}
         onChange={handleInputChange}
         required
-      />
+      /><br/>
 
       <button type="submit">Submit</button>
     </form>
