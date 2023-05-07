@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Genre from "./genre"
-import "./css/genre-list.css";
+import Genre from "./Genre"
+import "./genre-list.css";
 
-const GenreSelect = ({ genreList, currentSelected, selectGenre }) => {
+const GenreList = ({ genreList, currentSelected, selectGenre }) => {
     const [selectedGenre, setSelectedGenre] = useState(currentSelected);
     const [activeIndex, setActiveIndex] = useState(1);
     const checkActive = (index, className) => activeIndex === index ? className : "";
@@ -20,7 +20,7 @@ const GenreSelect = ({ genreList, currentSelected, selectGenre }) => {
             <h2>Genre List Component</h2>
             <div className="tabs">
                 {genreList && genreList.map((genre) => {
-                    return <Genre key={genre.id} genre={genre} checkActive={checkActive} handleClick={handleClick} />
+                    return <Genre key={genre} genre={genre} checkActive={checkActive} handleClick={handleClick}/>
                 })}
             </div>
             <div className="panels">
@@ -32,4 +32,4 @@ const GenreSelect = ({ genreList, currentSelected, selectGenre }) => {
     );
 }
 
-export default GenreSelect;
+export default GenreList;
