@@ -16,14 +16,14 @@ export class SearchForm extends React.Component{
 
   render() {
     return (
-      <form style={{margin: "40px"}} onSubmit={this.props.handleSubmit(this.state.value)}>
+      <form role="search-form" style={{margin: "40px"}} onSubmit={this.props.handleSubmit(this.state.value)}>
         <h2>Search Form Component</h2>
         <input 
           className="search-input" 
           type="text" 
           placeholder="What do you want to watch?" 
-          value={this.state.searchText} 
-          onChange= {this.handleChange}
+          value={this.state.value} 
+          onChange={this.handleChange}
         />
         <input className="search-button" type="submit" value="SEARCH" />
       </form>

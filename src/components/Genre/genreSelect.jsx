@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Genre from "./Genre"
+import Genre from "./genre"
 import "./genre-list.css";
 
-const GenreList = ({ genreList, currentSelected, selectGenre }) => {
+const GenreSelect = ({ genreList, currentSelected, selectGenre }) => {
     const [selectedGenre, setSelectedGenre] = useState(currentSelected);
     const [activeIndex, setActiveIndex] = useState(1);
     const checkActive = (index, className) => activeIndex === index ? className : "";
@@ -32,4 +32,4 @@ const GenreList = ({ genreList, currentSelected, selectGenre }) => {
     );
 }
 
-export default GenreList;
+export default GenreSelect;
