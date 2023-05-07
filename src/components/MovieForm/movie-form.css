@@ -1,0 +1,104 @@
+/* MovieForm.css */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.form-col {
+    flex-basis: 50%;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+}
+  
+.form-col {
+    flex-basis: 50%;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+}
+
+.item-title {
+    height: 20px;
+    left: 6.15%;
+    right: 88.83%;
+    top: calc(50% - 20px/2 - 298.5px);
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+
+    letter-spacing: 0.888889px;
+    text-transform: uppercase;
+
+    color: #F65261;
+
+    mix-blend-mode: normal;
+    opacity: 0.8;
+}
+
+.input-item {
+    left: 6.15%;
+    right: 40.06%;
+    top: 19.96%;
+    bottom: 73.83%;
+    width: 250px;
+    height: 25px;
+    border-radius: 4px;
+
+    background: rgba(50, 50, 50, 0.948044);
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    border-radius: 4px;
+}
+
+.movie-overview {
+    left: 5.84%;
+    right: 6.15%;
+    top: 59.21%;
+    bottom: 19.3%;
+    height: 197px;
+
+    background: rgba(50, 50, 50, 0.948044);
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    border-radius: 4px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="date"],
+textarea {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+    height: 37px;
+    width: 90px;
+    left: 0px;
+    top: 0px;
+    
+    background: #F65261;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  

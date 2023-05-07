@@ -15,7 +15,6 @@ export class SearchForm extends React.Component{
     this.initialSearchQuery = '';
     this.state = { value: this.initialSearchQuery };
     this.handleChange = this.handleChange.bind(this);
-    this.handleChange = props.handleChange;
   }
 
   handleChange(event) {

@@ -1,8 +1,8 @@
 import React from 'react';
-import Counter from '../components/Counter/counter';
+import Counter from '../../components/Counter/counter';
 
 export default {
-  title: 'Counter',
+  title: "Counter",
   component: Counter,
   argTypes: {
     count: { control: 'number' },

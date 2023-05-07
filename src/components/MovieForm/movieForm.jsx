@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './movie-form.css';
 
 const MovieForm = ({ initialMovieInfo = {}, onSubmit }) => {
 
@@ -27,45 +28,73 @@ const MovieForm = ({ initialMovieInfo = {}, onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="title">Title</label>
-      <input
-        type="text"
-        id="title"
-        name="title"
-        value={movieInfo.title || ''}
-        onChange={handleInputChange}
-        required
-      /><br/>
+      <div className="form-row">
+        <div className="form-col">
+          <label className="item-title" htmlFor="title">Title</label><br/>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            className="input-item"
+            placeholder={movieInfo.title || ''}
+            value={movieInfo.title || ''}
+            onChange={handleInputChange}
+            required
+          /><br/>
+        </div>
+        <div className="form-col">
+          <label className="item-title" htmlFor="releaseDate">Release Date</label>
+          <input
+            type="date"
+            id="releaseDate"
+            name="releaseDate"
+            className="input-item"
+            value={movieInfo.releaseDate || ''}
+            onChange={handleInputChange}
+            required
+          /><br/>
+        </div>
+      </div>
 
-      <label htmlFor="description">Description</label>
+      <div className="form-row">
+        <div className="form-col">
+          <label className="item-title" htmlFor="movieUrl">Movie URL</label>
+          <input
+            type="url"
+            id="movieUrl"
+            name="movieUrl"
+            className="input-item"
+            placeholder={movieInfo.imageUrl || ''}
+            value={movieInfo.imageUrl || ''}
+            onChange={handleInputChange}
+            required
+          /><br/>
+        </div>
+        <div className="form-col">
+          <label className="item-title" htmlFor="rating">Rating</label>
+          <input
+            type="text"
+            id="rating"
+            name="rating"
+            className="input-item"
+            placeholder={movieInfo.rating || ''}
+            value={movieInfo.rating || ''}
+            onChange={handleInputChange}
+            required
+          /><br/>
+        </div>
+      </div>
+      
+      <label className="item-title" htmlFor="description">Overwiew</label><br/>
       <textarea
         id="description"
         name="description"
+        className="movie-overview"
         value={movieInfo.description || ''}
         onChange={handleInputChange}
         required
       ></textarea><br/>
-
-      <label htmlFor="releaseDate">Release Date</label>
-      <input
-        type="date"
-        id="releaseDate"
-        name="releaseDate"
-        value={movieInfo.releaseDate || ''}
-        onChange={handleInputChange}
-        required
-      /><br/>
-
-      <label htmlFor="posterUrl">Poster URL</label>
-      <input
-        type="url"
-        id="posterUrl"
-        name="posterUrl"
-        value={movieInfo.imageUrl || ''}
-        onChange={handleInputChange}
-        required
-      /><br/>
-
+      
       <button type="submit">Submit</button>
     </form>
   );
