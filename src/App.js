@@ -4,13 +4,13 @@ import Counter from "./components/Counter/counter";
 import SearchForm from "./components/Search/searchForm";
 import GenreSelect from "./components/Genre/genreSelect";
 import { genreList } from "./components/Genre/genre-list";
-import { movieList } from "./data/movies";
 import { selectGenre } from "./components/Genre/selectGenre";
 import MovieTile from "./components/MovieTile/movieTile";
 import MovieDetails from "./components/MovieDetails/movieDetails";
 import SortControl from "./components/SortControl/sortControl";
 import Dialog from './components/Dialog/dialog';
 import MovieForm from './components/MovieForm/movieForm';
+import MovieListPage from './components/MovieListPage/movieListPage';
 
 function handleSubmit(value) {
   return event => {
@@ -19,26 +19,6 @@ function handleSubmit(value) {
   }
 }
 
-const movies = [
-  {
-    imageUrl: movieList[0].poster_path,
-    title: movieList[0].title,
-    releaseYear: movieList[0].release_date,
-    genres: movieList[0].genres,
-    description: movieList[0].overview,
-    duration: movieList[0].runtime,
-    rating: movieList[0].vote_average
-  },
-  {
-    imageUrl: movieList[3].poster_path,
-    title: movieList[3].title,
-    releaseYear: movieList[3].release_date,
-    genres: movieList[3].genres,
-    description: movieList[3].overview,
-    duration: movieList[3].runtime,
-    rating: movieList[3].vote_average
-  },
-];
 
 function App() {
   const [sortBy, setSortBy] = useState('release-date');
@@ -78,7 +58,7 @@ function App() {
 
   return (
     <>
-      <Counter />
+      {/* <Counter />
       <SearchForm initialSearchQuery="" handleSubmit={handleSubmit} />
       <GenreSelect genreList={genreList} currentSelected="All" selectGenre={selectGenre}/>
       <SortControl currentSelection={sortBy} onSelectionChange={handleSortByChange} />
@@ -114,7 +94,8 @@ function App() {
           <p>This is the content of my dialog.</p>
           <MovieForm initialMovieInfo={movies[0]} />
         </Dialog>
-      )}
+      )} */}
+      <MovieListPage />
     </>
   );
 }
