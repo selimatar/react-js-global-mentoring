@@ -61,8 +61,8 @@ describe('MovieForm', () => {
     });
   });
 
-  it('should submit the form with empty movie data when deleteMovie is called', () => {
-    const onSubmitMock = jest.fn();
-    //will be filled
-  });
+  // it('should submit the form with empty movie data when deleteMovie is called', () => {
+  //   const onSubmitMock = jest.fn();
+  //   //will be filled
+  // });
 });
