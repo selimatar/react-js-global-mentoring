@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams, Outlet } from "react-router-dom";
 import SearchForm from '../Search/searchForm';
 import Dialog from '../Dialog/dialog';
 import MovieForm from '../MovieForm/movieForm';
@@ -24,16 +25,32 @@ const MovieListPage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [movies, setMovies] = useState([]); //movie list
 
+    const [searchParams, setSearchParams] = useSearchParams();
+  
+    useEffect(() => {
+      setSearchParams({ sortCriterion, searchQuery, activeGenre });
+    }, [sortCriterion, searchQuery, activeGenre, setSearchParams]);
+    
+    useEffect(() => {
+      const params = new URLSearchParams(searchParams);
+      const newSortCriterion = params.get('sortCriterion') || 'release-date';
+      const newSearchQuery = params.get('searchQuery') || '';
+      const newActiveGenre = params.get('activeGenre') || 'All';
+      setSortCriterion(newSortCriterion);
+      setSearchQuery(newSearchQuery);
+      setActiveGenre(newActiveGenre);
+    }, [searchParams, setSortCriterion, setSearchQuery, setActiveGenre]);
+
     useEffect(() => {
         setIsLoading(true);
         const query = buildQuery();
         fetch(`http://localhost:4000/movies?${query}`)
-          .then(response => response.json())
-          .then(data => {
+        .then(response => response.json())
+        .then(data => {
             setMovies(data.data);
             setIsLoading(false);
-          })
-          .catch(error => console.error(error));
+        })
+        .catch(error => console.error(error));
     }, [searchQuery, sortCriterion, activeGenre]);
       
     function buildQuery() {
@@ -87,7 +104,8 @@ const MovieListPage = () => {
                     <button className='add-movie-button' onClick={handleAddClick}>+ Add Movie</button>
                 </div>
                 <div className='movie-list-page'>
-                    <SearchForm initialSearchQuery={searchQuery} handleSubmit={handleSearchSubmit} />
+                    {/* <SearchForm initialSearchQuery={searchQuery} handleSubmit={handleSearchSubmit} /> */}
+                    <Outlet />
                 </div>
             </>}
             <div className='movie-filtering'>
@@ -101,11 +119,11 @@ const MovieListPage = () => {
                 ) : (
                     movies.map((movie) => (
                         <MovieTile
-                        key={movie.title}
-                        movieInfo={movie}
-                        onClick={() => handleTileClick(movie)}
-                        onEdit={() => handleEditClick(movie)}
-                        onDelete={() => handleDeleteClick(movie)}
+                            key={movie.title}
+                            movieInfo={movie}
+                            onClick={() => handleTileClick(movie)}
+                            onEdit={() => handleEditClick(movie)}
+                            onDelete={() => handleDeleteClick(movie)}
                         />
                     ))
                 )}
