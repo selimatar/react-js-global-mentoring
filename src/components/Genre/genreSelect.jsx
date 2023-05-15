@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Genre from "./genre"
-import "./genre-list.css";
+import "./css/genre-select.css";
 
 const GenreSelect = ({ genreList, currentSelected, selectGenre }) => {
     const [selectedGenre, setSelectedGenre] = useState(currentSelected);
@@ -20,7 +20,7 @@ const GenreSelect = ({ genreList, currentSelected, selectGenre }) => {
             <h2>Genre List Component</h2>
             <div className="tabs">
                 {genreList && genreList.map((genre) => {
-                    return <Genre key={genre.id} genre={genre} checkActive={checkActive} handleClick={handleClick}/>
+                    return <Genre key={genre} genre={genre} checkActive={checkActive} handleClick={handleClick}/>
                 })}
             </div>
             <div className="panels">

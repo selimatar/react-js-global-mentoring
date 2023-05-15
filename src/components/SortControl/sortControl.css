@@ -1,0 +1,36 @@
+.sort-control {
+    margin: 40px;
+}
+
+.sort-by-select {
+    width: 76px;
+    height: 20px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+
+    letter-spacing: 0.888889px;
+    text-transform: uppercase;
+
+    mix-blend-mode: normal;
+    opacity: 0.6;
+}
+
+.release-date {
+    height: 20px;
+    margin-left: 30px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+
+    letter-spacing: 0.888889px;
+    text-transform: uppercase;
+}

@@ -1,0 +1,33 @@
+.movie-details {
+    display: flex;
+    margin: 40px;
+}
+
+.movie-information {
+    margin-left: 60px;
+}
+
+.movie-title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 49px;
+    /* identical to box height */
+    text-transform: uppercase;
+}
+
+.movie-avarage {
+    height: 24px;
+    left: 21.67%;
+    right: 21.67%;
+    top: calc(50% - 24px/2);
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+}
