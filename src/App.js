@@ -83,6 +83,7 @@ function App() {
       <GenreSelect genreList={genreList} currentSelected="All" selectGenre={selectGenre}/>
       <SortControl currentSelection={sortBy} onSelectionChange={handleSortByChange} />
       <button className='add-movie-button' onClick={handleAddClick}>Add Movie</button>
+      {showDetail && <MovieDetails movie={selectedMovie}/>}
       {movies.map((movie) => (
         <MovieTile
           key={movie.title}

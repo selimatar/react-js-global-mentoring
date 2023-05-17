@@ -32,7 +32,7 @@ export class Counter extends React.Component {
         React.createElement("h2", { key: 0 }, "Counter"),
         React.createElement(Button, { key: 1, handleClick: this.handleIncrement, name: "+1" }, null),
         React.createElement(Button, { key: 2, handleClick: this.handleDecrement, name: "-1" }, null),
-        React.createElement("p", { key: 3 }, this.state.count)
+        React.createElement("p", { key: 3, title: "count" }, this.state.count)
       ]
     );
   }
