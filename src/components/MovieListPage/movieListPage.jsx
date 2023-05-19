@@ -16,6 +16,7 @@ const MovieListPage = () => {
     const [showAddDialog, setShowAddDialog] = useState(false);
     const [sortCriterion, setSortCriterion] = useState('release-date'); // sort criterion
     const [selectedMovie, setSelectedMovie] = useState({}); // selected movie
+    const [movieId, setMovieId] = useState();
     const [showDetail, setShowDetail] = useState(false);
     const [showEditDialog, setShowEditDialog] = useState(false);
     const [showDeleteDialog, setShowDeleteDialog] = useState(false);
@@ -30,28 +31,33 @@ const MovieListPage = () => {
     useEffect(() => {
       setSearchParams({ sortCriterion, searchQuery, activeGenre });
     }, [sortCriterion, searchQuery, activeGenre, setSearchParams]);
+
+    useEffect(() => {
+        setSearchParams({ movieId });
+    }, [movieId])
     
     useEffect(() => {
       const params = new URLSearchParams(searchParams);
+      const newMovieId = params.get('/') || '';
       const newSortCriterion = params.get('sortCriterion') || 'release-date';
       const newSearchQuery = params.get('searchQuery') || '';
       const newActiveGenre = params.get('activeGenre') || 'All';
+      setMovieId(newMovieId);
       setSortCriterion(newSortCriterion);
       setSearchQuery(newSearchQuery);
       setActiveGenre(newActiveGenre);
-    }, [searchParams, setSortCriterion, setSearchQuery, setActiveGenre]);
+    }, [searchParams, setMovieId, setSortCriterion, setSearchQuery, setActiveGenre]);
 
     useEffect(() => {
         setIsLoading(true);
-        const query = buildQuery();
-        fetch(`http://localhost:4000/movies?${query}`)
+        fetch(showDetail && movieId ? `http://localhost:4000/movies?${movieId}` : `http://localhost:4000/movies?${buildQuery()}`)
         .then(response => response.json())
         .then(data => {
             setMovies(data.data);
             setIsLoading(false);
         })
         .catch(error => console.error(error));
-    }, [searchQuery, sortCriterion, activeGenre]);
+    }, [searchQuery, movieId, sortCriterion, activeGenre]);
       
     function buildQuery() {
         const queryParts = [];
@@ -77,6 +83,7 @@ const MovieListPage = () => {
     const handleTileClick = (movie) => {
         setShowDetail(true);
         setSelectedMovie(movie);
+        setMovieId(movie.id);
     }
 
     const handleAddClick = () => {
@@ -98,16 +105,16 @@ const MovieListPage = () => {
 
     return (
         <>
-            {showDetail && selectedMovie ? <MovieDetails movie={selectedMovie}/> : 
+            {/* showDetail && selectedMovie ? <MovieDetails movie={selectedMovie}/> : 
             <>
-                <div className='add-movie-div'>
-                    <button className='add-movie-button' onClick={handleAddClick}>+ Add Movie</button>
-                </div>
                 <div className='movie-list-page'>
-                    {/* <SearchForm initialSearchQuery={searchQuery} handleSubmit={handleSearchSubmit} /> */}
-                    <Outlet />
+                    <SearchForm initialSearchQuery={searchQuery} handleSubmit={handleSearchSubmit} /> 
                 </div>
-            </>}
+            </> */}
+            <div className='add-movie-div'>
+                <button className='add-movie-button' onClick={handleAddClick}>+ Add Movie</button>
+            </div>
+            <Outlet />
             <div className='movie-filtering'>
                 <GenreSelect genreList={genreList} activeGenre={activeGenre} setActiveGenre={setActiveGenre} selectGenre={selectGenre}/>
                 <SortControl currentSelection={sortCriterion} onSelectionChange={handleSortByChange} />

@@ -17,7 +17,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<SearchForm  initialSearchQuery={searchQuery} handleSubmit={handleSearchSubmit} />}>
+        <Route path='/' element={<MovieListPage />}>
           <Route path="/:movieId" element={<MovieDetailsWrapper />} />
         </Route>
       </Routes>
