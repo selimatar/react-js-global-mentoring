@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MovieListPage from './components/MovieListPage/movieListPage';
-import SearchForm from './components/Search/searchForm';
 import MovieDetailsWrapper from './components/MovieDetails/movieDetailsWrapper';
 
 function App() {
@@ -18,7 +17,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<MovieListPage />}>
-          <Route path="/:movieId" element={<MovieDetailsWrapper />} />
+          <Route path=":movieId" element={<MovieDetailsWrapper />} />
         </Route>
       </Routes>
     </BrowserRouter>

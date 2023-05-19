@@ -8,7 +8,6 @@ function MovieDetailsWrapper() {
 
   useEffect(() => {
     const fetchMovie = async () => {
-        //this fetch query is working false. need to check it out
         await fetch(`http://localhost:4000/movies?${movieId}`)
         .then(response => response.json())
         .then(data => {
@@ -19,7 +18,7 @@ function MovieDetailsWrapper() {
     fetchMovie();
   }, [movieId]);
 
-  return movie ? <MovieDetails movie={movie[0] /* Here I got the first element of data because of wrong running query */} /> : <div>Loading...</div>;
+  return movie && Object.keys(movie).length > 0 ? <MovieDetails movie={movie.filter(item => item.id == movieId)[0] /* Here I got the first element of data because of wrong running query */} /> : <div>Loading...</div>;
 }
 
 export default MovieDetailsWrapper;
