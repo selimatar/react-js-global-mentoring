@@ -30,7 +30,7 @@ const MovieListPage = () => {
   
     useEffect(() => {
       setSearchParams({ sortCriterion, searchQuery, activeGenre });
-    }, [sortCriterion, searchQuery, activeGenre, setSearchParams]);
+    }, [sortCriterion, searchQuery, activeGenre]);
 
     useEffect(() => {
         if(movieId) navigate(`/${movieId}`)
