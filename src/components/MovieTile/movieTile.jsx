@@ -1,31 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import './movieTile.css'
 
 const MovieTile = ({ movieInfo, onClick, onEdit, onDelete }) => {
   const [showContextMenu, setShowContextMenu] = useState(false);
   const dialogRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const handleEscape = (event) => {
-      if (event.key === 'Escape') {
-        setShowContextMenu(false);
-      }
-    };
-
     const handleClickOutside = (event) => {
       if (dialogRef.current && !dialogRef.current.contains(event.target)) {
         setShowContextMenu(false);
       }
     };
 
-    document.addEventListener('keydown', handleEscape);
-    document.addEventListener('mousedown', handleClickOutside);
-
+    window.addEventListener('click', handleClickOutside);
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('click', handleClickOutside);
     };
-  }, [showContextMenu]);
+  }, []);
 
   const handleContextMenu = (event) => {
     event.preventDefault();
@@ -38,6 +31,7 @@ const MovieTile = ({ movieInfo, onClick, onEdit, onDelete }) => {
 
   const handleEditClick = () => {
     setShowContextMenu(false);
+    navigate(`/${movieInfo.id}/edit`);
     onEdit();
   };
 

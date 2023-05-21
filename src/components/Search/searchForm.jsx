@@ -28,6 +28,7 @@ export class SearchForm extends React.Component{
           />
           <input className="search-button" type="submit" value="SEARCH" />
         </form>
+        <Outlet />
       </>
     );
   }

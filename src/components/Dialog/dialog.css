@@ -37,10 +37,12 @@
     padding: 10px;
     background-color: #232323EA;
     border-bottom: 1px solid #ddd;
+    text-decoration: #fff;
   }
   
   .dialog-header h2 {
     margin: 0;
+    color: #F65261;;
   }
   
   .dialog-header button {
