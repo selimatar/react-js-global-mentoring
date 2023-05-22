@@ -9,6 +9,8 @@ import { selectGenre } from "./components/Genre/selectGenre";
 import MovieTile from "./components/MovieTile/movieTile";
 import MovieDetails from "./components/MovieDetails/movieDetails";
 import SortControl from "./components/SortControl/sortControl";
+import Dialog from './components/Dialog/dialog';
+import MovieForm from './components/MovieForm/movieForm';
 
 function handleSubmit(value) {
   return event => {
@@ -42,22 +44,36 @@ function App() {
   const [sortBy, setSortBy] = useState('release-date');
   const [showDetail, setShowDetail] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState({});
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [showAddDialog, setShowAddDialog] = useState(false);
+  const [showEditDialog, setShowEditDialog] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [editingMovie, setEditingMovie] = useState(null);
   
   const handleTileClick = (movie) => {
     setShowDetail(true);
     setSelectedMovie(movie);
   };
 
-  const handleEditClick = (movie) => {
-    console.log('Edit clicked:', movie.title);
-  };
+  const handleAddClick = () => {
+    setShowAddDialog(true);
+  };  
 
-  const handleDeleteClick = (movie) => {
-    console.log('Delete clicked:', movie.title);
+  const handleEditClick = (movie) => {
+    setEditingMovie(movie);
+    setShowEditDialog(true);
+  };
+  
+  const handleDeleteClick = () => {
+    setShowDeleteDialog(true);
   };
 
   const handleSortByChange = (newSortBy) => {
     setSortBy(newSortBy);
+  };
+
+  const handleDialogClose = () => {
+    setIsDialogOpen(false);
   };
 
   return (
@@ -66,6 +82,7 @@ function App() {
       <SearchForm initialSearchQuery="" handleSubmit={handleSubmit} />
       <GenreSelect genreList={genreList} currentSelected="All" selectGenre={selectGenre}/>
       <SortControl currentSelection={sortBy} onSelectionChange={handleSortByChange} />
+      <button className='add-movie-button' onClick={handleAddClick}>Add Movie</button>
       {showDetail && <MovieDetails movie={selectedMovie}/>}
       {movies.map((movie) => (
         <MovieTile
@@ -76,6 +93,29 @@ function App() {
           onDelete={() => handleDeleteClick(movie)}
         />
       ))};
+      {showAddDialog && (
+        <Dialog title="Add Movie" onClose={() => setShowAddDialog(false)}>
+          <MovieForm />
+        </Dialog>
+      )}
+      {showEditDialog && (
+        <Dialog title="Edit Movie" onClose={() => setShowEditDialog(false)}>
+          <MovieForm initialMovieInfo={editingMovie} />
+        </Dialog>
+      )}
+      {showDeleteDialog && (
+        <Dialog title="Delete Movie" onClose={() => setShowDeleteDialog(false)}>
+          <p>Movie has been deleted.</p>
+        </Dialog>
+      )}
+      {showDetail && <MovieDetails movie={selectedMovie}/>}
+      <button style={{margin: "40px"}} onClick={() => setIsDialogOpen(true)}>Open Dialog</button>
+      {isDialogOpen && (
+        <Dialog title="My Dialog" onClose={handleDialogClose}>
+          <p>This is the content of my dialog.</p>
+          <MovieForm initialMovieInfo={movies[0]} />
+        </Dialog>
+      )}
     </>
   );
 }

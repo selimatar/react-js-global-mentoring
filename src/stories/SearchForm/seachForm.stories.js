@@ -1,5 +1,5 @@
 import React from "react";
-import SearchForm from "../components/Search/searchForm";
+import SearchForm from "../../components/Search/searchForm";
 
 export default {
   title: "SearchForm",

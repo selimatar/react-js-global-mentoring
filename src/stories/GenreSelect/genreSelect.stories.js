@@ -1,6 +1,6 @@
 import React from "react";
-import GenreSelect from "../components/Genre/genreSelect";
-import { genreList } from "../components/Genre/genre-list";
+import GenreSelect from "../../components/Genre/genreSelect";
+import { genreList } from "../../components/Genre/genre-list";
 
 export default {
   title: "GenreSelect",
