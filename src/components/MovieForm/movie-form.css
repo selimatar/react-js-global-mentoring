@@ -58,10 +58,47 @@ form {
     height: 25px;
     border-radius: 4px;
 
-    background: rgba(50, 50, 50, 0.948044);
     mix-blend-mode: normal;
     opacity: 0.8;
     border-radius: 4px;
+}
+
+.error-message {
+    margin-top: 5px;
+    height: 17px;
+    left: 6.25%;
+    right: 67.93%;
+    top: calc(50% - 17px/2 + 23.5px);
+    
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    color: #F65261;
+    mix-blend-mode: normal;
+    opacity: 0.8;
+}
+
+.success-message {
+    margin: 10px 0;
+    height: 17px;
+    left: 6.25%;
+    right: 67.93%;
+    top: calc(50% - 17px/2 + 23.5px);
+    
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    color: #fff;
+    mix-blend-mode: normal;
+    opacity: 0.8;
 }
 
 .movie-overview {
@@ -71,7 +108,6 @@ form {
     bottom: 19.3%;
     height: 197px;
 
-    background: rgba(50, 50, 50, 0.948044);
     mix-blend-mode: normal;
     opacity: 0.8;
     border-radius: 4px;
