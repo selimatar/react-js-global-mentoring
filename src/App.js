@@ -3,7 +3,6 @@ import './App.css';
 import MovieListPage from './components/MovieListPage/movieListPage';
 
 function App() {
-
   return <MovieListPage />;
 }
 
