@@ -13,7 +13,7 @@ import MovieDetails from '../MovieDetails/movieDetails';
 
 const MovieListPage = () => {
     const [showAddDialog, setShowAddDialog] = useState(false);
-    const [sortCriterion, setSortCriterion] = useState('release-date'); // sort criterion
+    const [sortCriterion, setSortCriterion] = useState('release_date'); // sort criterion
     const [selectedMovie, setSelectedMovie] = useState({}); // selected movie
     const [showDetail, setShowDetail] = useState(false);
     const [showEditDialog, setShowEditDialog] = useState(false);
@@ -39,13 +39,13 @@ const MovieListPage = () => {
     function buildQuery() {
         const queryParts = [];
         if (searchQuery && searchQuery !== '') {
-            queryParts.push(`${'search'}=${searchQuery}`);
+            queryParts.push(`${'search'}=${searchQuery}&&searchBy=title`);
         }
         if (sortCriterion) {
-            queryParts.push(`${'sortBy'}=${sortCriterion}`);
+            queryParts.push(`${'sortBy'}=${sortCriterion}&sortOrder=desc`);
         }
         if (activeGenre !== 'All') {
-            queryParts.push(`${'searchBy'}=${activeGenre}`);
+            queryParts.push(`${'filter'}=${activeGenre}`);
         }
         return queryParts.join('&');
     }
