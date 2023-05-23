@@ -39,7 +39,7 @@ const MovieListPage = () => {
     function buildQuery() {
         const queryParts = [];
         if (searchQuery && searchQuery !== '') {
-            queryParts.push(`${'search'}=${searchQuery}&&searchBy=title`);
+            queryParts.push(`${'search'}=${searchQuery}&searchBy=title`);
         }
         if (sortCriterion) {
             queryParts.push(`${'sortBy'}=${sortCriterion}&sortOrder=desc`);
