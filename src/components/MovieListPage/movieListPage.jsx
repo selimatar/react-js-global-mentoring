@@ -13,7 +13,7 @@ import MovieTile from '../MovieTile/movieTile';
 
 const MovieListPage = () => {
     const [showAddDialog, setShowAddDialog] = useState(false);
-    const [sortCriterion, setSortCriterion] = useState('release-date'); // sort criterion
+    const [sortCriterion, setSortCriterion] = useState('release_date'); // sort criterion
     const [selectedMovie, setSelectedMovie] = useState({}); // selected movie
     const [movieId, setMovieId] = useState();
     const [showDetail, setShowDetail] = useState(false);
@@ -38,7 +38,7 @@ const MovieListPage = () => {
     
     useEffect(() => {
       const params = new URLSearchParams(searchParams);
-      const newSortCriterion = params.get('sortCriterion') || 'release-date';
+      const newSortCriterion = params.get('sortCriterion') || 'release_date';
       const newSearchQuery = params.get('searchQuery') || '';
       const newActiveGenre = params.get('activeGenre') || 'All';
       setSortCriterion(newSortCriterion);
@@ -55,18 +55,18 @@ const MovieListPage = () => {
             setIsLoading(false);
         })
         .catch(error => console.error(error));
-    }, [searchQuery, movieId]);
+    }, [searchParams, movieId]);
       
     function buildQuery() {
         const queryParts = [];
         if (searchQuery && searchQuery !== '') {
-            queryParts.push(`${'search'}=${searchQuery}`);
+            queryParts.push(`${'search'}=${searchQuery}&&searchBy=title`);
         }
         if (sortCriterion) {
-            queryParts.push(`${'sortBy'}=${sortCriterion}`);
+            queryParts.push(`${'sortBy'}=${sortCriterion}&sortOrder=desc`);
         }
         if (activeGenre !== 'All') {
-            queryParts.push(`${'searchBy'}=${activeGenre}`);
+            queryParts.push(`${'filter'}=${activeGenre}`);
         }
         return queryParts.join('&');
     }
