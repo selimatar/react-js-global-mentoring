@@ -1,6 +1,5 @@
 import React from "react";
 import './css/search-form.css';
-import { Outlet } from "react-router-dom";
 
 export class SearchForm extends React.Component{
 
@@ -28,7 +27,6 @@ export class SearchForm extends React.Component{
           />
           <input className="search-button" type="submit" value="SEARCH" />
         </form>
-        <Outlet />
       </>
     );
   }
