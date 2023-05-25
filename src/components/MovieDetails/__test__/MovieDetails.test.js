@@ -1,18 +1,26 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import MovieDetails from "../movieDetails";
-import { movieList } from "../../../data/movies";
 
 describe("SortControl", () => {
   test("renders movie tile component", () => {
     const movie = {
-        imageUrl: movieList[0].poster_path,
-        title: movieList[0].title,
-        releaseYear: movieList[0].release_date,
-        genres: movieList[0].genres,
-        description: movieList[0].overview,
-        duration: movieList[0].runtime,
-        rating: movieList[0].vote_average
-    }
+      "id": 424785,
+      "title": "Transformers 7",
+      "tagline": "",
+      "vote_average": 0,
+      "vote_count": 0,
+      "release_date": "2019-06-26",
+      "poster_path": "https://image.tmdb.org/t/p/w500/432BowXw7a4fWXSONxBaFKqvW4f.jpg",
+      "overview": "Plot unknown.",
+      "budget": 0,
+      "revenue": 0,
+      "genres": [
+          "Science Fiction",
+          "Action",
+          "Adventure"
+      ],
+      "runtime": null
+  };
     render(
         <MovieDetails movie={movie}/>
     );

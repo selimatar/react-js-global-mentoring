@@ -35,7 +35,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #f1f1f1;
+    background-color: #232323EA;
     border-bottom: 1px solid #ddd;
   }
   
@@ -52,5 +52,6 @@
   
   .dialog-body {
     padding: 10px;
+    background-color: #232323EA
   }
   

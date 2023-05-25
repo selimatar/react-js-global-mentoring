@@ -12,8 +12,8 @@ describe('GenreSelect', () => {
 
   test("renders genre list component", () => {
     render(<GenreSelect />);
-    const searchForm = screen.getByText(/Genre List Component/i);
-    expect(searchForm).toBeInTheDocument();
+    const genreSelect = screen.getByTitle(/Genre Select/i);
+    expect(genreSelect).toBeInTheDocument();
   });
 
   test('highlights a selected genre passed in props', () => {
