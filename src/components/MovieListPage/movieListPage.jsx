@@ -10,6 +10,7 @@ import { genreList } from '../Genre/genre-list';
 import { selectGenre } from '../Genre/selectGenre';
 import SortControl from '../SortControl/sortControl';
 import MovieTile from '../MovieTile/movieTile';
+import MovieDetails from '../MovieDetails/movieDetails';
 
 const MovieListPage = () => {
     const [showAddDialog, setShowAddDialog] = useState(false);
@@ -60,7 +61,7 @@ const MovieListPage = () => {
     function buildQuery() {
         const queryParts = [];
         if (searchQuery && searchQuery !== '') {
-            queryParts.push(`${'search'}=${searchQuery}&&searchBy=title`);
+            queryParts.push(`${'search'}=${searchQuery}&searchBy=title`);
         }
         if (sortCriterion) {
             queryParts.push(`${'sortBy'}=${sortCriterion}&sortOrder=desc`);
