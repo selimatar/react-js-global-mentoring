@@ -8,17 +8,17 @@ function MovieDetailsWrapper() {
 
   useEffect(() => {
     const fetchMovie = async () => {
-        await fetch(`http://localhost:4000/movies?${movieId}`)
+        await fetch(`http://localhost:4000/movies/${movieId}`)
         .then(response => response.json())
         .then(data => {
-            setMovie(data.data);
+            setMovie(data);
         })
         .catch(error => console.error(error));
     };
     fetchMovie();
   }, [movieId]);
 
-  return movie && Object.keys(movie).length > 0 ? <MovieDetails movie={movie.filter(item => item.id == movieId)[0] /* Here I got the first element of data because of wrong running query */} /> : <div>Loading...</div>;
+  return movie && Object.keys(movie).length > 0 ? <MovieDetails movie={movie} /> : <div>Loading...</div>;
 }
 
 export default MovieDetailsWrapper;
