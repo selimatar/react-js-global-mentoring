@@ -10,7 +10,6 @@ import { genreList } from '../Genre/genre-list';
 import { selectGenre } from '../Genre/selectGenre';
 import SortControl from '../SortControl/sortControl';
 import MovieTile from '../MovieTile/movieTile';
-import MovieDetails from '../MovieDetails/movieDetails';
 
 const MovieListPage = () => {
     const [showAddDialog, setShowAddDialog] = useState(false);
@@ -49,7 +48,17 @@ const MovieListPage = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch(showDetail && movieId ? `http://localhost:4000/movies?${movieId}` : `http://localhost:4000/movies?${buildQuery()}`)
+        if(showDetail && movieId) {
+            fetch(`http://localhost:4000/movies/${movieId}`)
+            .then(response => response.json())
+            .then(data => {
+                setSelectedMovie(data[0]);
+                setIsLoading(false);
+            })
+            .catch(error => console.error(error));
+        }
+
+        fetch(`http://localhost:4000/movies?${buildQuery()}`)
         .then(response => response.json())
         .then(data => {
             setMovies(data.data);
