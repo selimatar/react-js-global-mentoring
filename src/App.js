@@ -1,9 +1,27 @@
 import React, { useState } from 'react';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MovieListPage from './components/MovieListPage/movieListPage';
+import MovieDetailsWrapper from './components/MovieDetails/movieDetailsWrapper';
 
 function App() {
-  return <MovieListPage />;
+  const [searchQuery, setSearchQuery] = useState(''); //search query
+
+  const handleSearchSubmit = (value) => {
+    return event => {
+      event.preventDefault();
+      setSearchQuery(value);
+    }
+  };
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<MovieListPage />}>
+          <Route path=":movieId" element={<MovieDetailsWrapper />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

@@ -15,15 +15,17 @@ const GenreSelect = ({ genreList, activeGenre, setActiveGenre, selectGenre }) =>
     };
 
     return (
-        <div title="Genre Select" style={{width: "50%", margin: 40}}>
-            <div className="tabs">
-                {genreList && genreList.map((genre) => {
-                    return <Genre key={genre.id} genre={genre} checkActive={checkActive} handleClick={handleClick}/>
-                })}
-            </div>
-            <div className="panels">
-                <div className={`panel ${checkActive(activeIndex, "active")}`}>
-                    <p>{activeGenre}</p>
+         <div style={{width: "50%", margin: 40}}>
+            <div title="Genre Select" style={{width: "50%", margin: 40}}>
+                <div className="tabs">
+                    {genreList && genreList.map((genre) => {
+                        return <Genre key={genre.id} genre={genre} checkActive={checkActive} handleClick={handleClick}/>
+                    })}
+                </div>
+                <div className="panels">
+                    <div className={`panel ${checkActive(activeIndex, "active")}`}>
+                        <p>{activeGenre}</p>
+                    </div>
                 </div>
             </div>
         </div>
